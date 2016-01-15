@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CowSay What?</title>
+</head>
+<body>
+  <h1>CowSay What?</h1>
+
+  <button id="cowsay-run">Say it, cow!</button>
+
+  <pre>
+----------------------------------------
+<span id="cowsay-output"></span>
+----------------------------------------
+      \   ^__^
+       \  (oo)\_______
+          (__)\       )\/\
+              ||----w |
+              ||     ||
+  </pre>
+</body>
+</html>
+
+
+
+var cowsayRun = document.getElementById("cowsay-run");
+var cowsayOutput = document.getElementById("cowsay-output");
+
+cowsayRun.addEventListener("click", function() {
+  
+  var inputText = prompt("What should the cow say?");
+
+});
+ var lastCharacter = inputText.charAt( inputText.length - 1);
+ 
+  if (lastCharacter === "?") {
+    cowsayOutput.innerText = "moo don't know.";
+  }
+  else if (lastCharacter === "!") {
+    cowsayOutput.innerText = "MOO MOO MOO!";
+  }
+  else {
+    cowsayOutput.innerText = "moo... " + inputText + " moo...";
+  }
