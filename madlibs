@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mad Libs</title>
+</head>
+<body>
+  <form id="limerick-form">
+    <!-- this input is the one you'll copy; make sure to change the name, the label and id for each one! -->
+    <p>Enter a noun: <input type="text" name="noun-one" id="noun-one" /></p>
+    <p>Enter a verb: <input type="text" name="verb-one" id="verb-one" /></p>
+    <p>Enter a number: <input type="text" name="number-one" id="number-one" /></p>
+    <p>Enter another verb: <input type="text" name="verb-two" id="verb-two" /></p>
+    
+    <input type="submit" name="submit" value="Gimme a mad lib!" />
+</form>
+ 
+<div id="limerick">
+    <p>Once upon a time there was a  <span id="noun-one-new"></span>,</p>
+    <p>Who went for a <span id="verb-one-new"></span>. –</p>
+    <p>Much to his surprise, he found <span id="number-one-new"></span> little pigs,</p>
+    <p>He said to the pigs "I'm gonna  <span id="verb-two-new"></span> your house down!</p>
+</div>
+  </body>
+</html>
+
+________________________________________________________________________________________________________________
+
+
+div#limerick {
+    display: none;
+}
+
+
+________________________________________________________________________________________________________________
+
+<script>
+$(document).ready(function() {
+	$('#limerick-form').submit(function(e) {
+		e.preventDefault();
+	
+		var nounOne = $('input#noun-one').val();
+       var verbOne = $('input#verb-one').val();
+        var numberOne = $('input#number-one').val();
+        var verbTwo = $('input#verb-two').val();
+     	
+       
+        $('span#noun-one-new').text(nounOne);
+       $('span#verb-one-new').text(verbOne);
+        $('span#number-one-new').text(numberOne);
+        $('span#verb-two-new').text(verbTwo);
+      
+        
+        $('form#limerick-form').fadeOut('fast', function() {
+            $('div#limerick').show();
+        });      
+  });
+});
+</script>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+</body>
+</html>
