@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="description" content="Skillcrush 102 - Magic 8 Ball" />
+  <title>Magic 8 Ball</title>
+</head>
+<body>
+  <form id="magic-eight-ball" method="post">
+    Ask a question: <input type="text" name="question" id="question" size="70" />
+    <input type="submit" id="ask-button" name="submit" value="Ask" />
+  </form>
+  <div id="answer"></div>
+</body>
+</html> 
+
+
+<!--Css-->
+#answer {
+  display: none;
+  color: teal;
+  font-family: florabella;
+  font-size: 3em;
+}
+#ask-button{
+  color: purple;
+  background: coral;
+}
+
+
+<!--JavaScript-->
+$(document).ready(function(e) {
+   $('form#magic-eight-ball').submit(function(e) {
+	e.preventDefault();
+     
+	// start writing your magic 8 ball logic here!
+     
+      var answers = ['Yes', 'No', 'Ask again later', 'My sources say no', 'Without a doubt'];
+      var random = answers[Math.floor(Math.random() * answers.length)];
+        $('div#answer').text(random).fadeIn('fast');
+    });
+});
+  
